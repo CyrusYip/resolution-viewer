@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 function getWindowInfo() {
   const { innerWidth, innerHeight, outerWidth, outerHeight, devicePixelRatio } = window
@@ -7,12 +7,28 @@ function getWindowInfo() {
   return { innerWidth, innerHeight, outerWidth, outerHeight, devicePixelRatio, width, height, availWidth, availHeight }
 }
 
-const windowInfo = ref(getWindowInfo())
+const rawWindowInfo = ref(getWindowInfo())
+
+const computedWindowInfo = computed(() => {
+  const { innerWidth, innerHeight, width: logicalWidth, height: logicalHeight, devicePixelRatio } = rawWindowInfo.value
+  const physicalWidth = logicalWidth * devicePixelRatio
+  const physicalHeight = logicalHeight * devicePixelRatio
+  const scale = `${devicePixelRatio * 100}%`
+  const viewportSize = `${innerWidth}×${innerHeight}`
+  const logicalResolution = `${logicalWidth}×${logicalHeight}`
+  const physicalResolution = `${physicalWidth}×${physicalHeight}`
+  return {
+    viewportSize,
+    logicalResolution,
+    scale,
+    physicalResolution
+  }
+})
 
 // Refresh info on resize event
 onMounted(() => {
   window.addEventListener('resize', () => {
-    windowInfo.value = getWindowInfo()
+    rawWindowInfo.value = getWindowInfo()
   })
 })
 </script>
@@ -23,7 +39,8 @@ onMounted(() => {
   </header>
 
   <main>
-    <p class="info" v-for="(value, key, index) in windowInfo" :key="index">
+    <p>{{ computedWindowInfo }}</p>
+    <p class="info" v-for="(value, key, index) in rawWindowInfo" :key="index">
       {{ key }}: {{ value }}
     </p>
   </main>
