@@ -40,9 +40,6 @@ onMounted(() => {
 
   <main>
     <p>{{ computedWindowInfo }}</p>
-    <p class="info" v-for="(value, key, index) in rawWindowInfo" :key="index">
-      {{ key }}: {{ value }}
-    </p>
   </main>
 
   <footer>
