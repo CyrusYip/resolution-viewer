@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, defineComponent, onMounted, ref } from 'vue'
+import { ElConfigProvider } from 'element-plus'
+
+defineComponent({
+  components: {
+    ElConfigProvider,
+  },
+})
 
 function getWindowInfo() {
   const { innerWidth, innerHeight, outerWidth, outerHeight, devicePixelRatio } = window
@@ -34,20 +41,23 @@ onMounted(() => {
 </script>
 
 <template>
-  <header>
-    <p>header</p>
-  </header>
+  <el-config-provider>
+    <header>
+      <el-button>Default</el-button>
+      <p>header</p>
+    </header>
 
-  <main>
-    <p>{{ computedWindowInfo }}</p>
-  </main>
+    <main>
+      <p>{{ computedWindowInfo }}</p>
+    </main>
 
-  <footer>
-    <!-- Create vertical scrollbar -->
-    <p>footer start</p>
-    <div class="scrollbar-y"></div>
-    <p>footer end</p>
-  </footer>
+    <footer>
+      <!-- Create vertical scrollbar -->
+      <p>footer start</p>
+      <div class="scrollbar-y"></div>
+      <p>footer end</p>
+    </footer>
+  </el-config-provider>
 </template>
 
 <style scoped>
