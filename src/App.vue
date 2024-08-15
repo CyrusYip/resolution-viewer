@@ -38,17 +38,38 @@ onMounted(() => {
     rawWindowInfo.value = getWindowInfo()
   })
 })
+
+const tableData = [
+  {
+    key: 'Physical resolution',
+    value: computedWindowInfo.value.physicalResolution,
+  },
+  {
+    key: 'Logical resolution',
+    value: computedWindowInfo.value.logicalResolution,
+  },
+  {
+    key: 'Viewport size',
+    value: computedWindowInfo.value.viewportSize,
+  },
+  {
+    key: 'Scale',
+    value: computedWindowInfo.value.scale,
+  },
+]
 </script>
 
 <template>
   <el-config-provider>
     <header>
-      <el-button>Default</el-button>
       <p>header</p>
     </header>
 
     <main>
-      <p>{{ computedWindowInfo }}</p>
+      <el-table class="infoTable" stripe :data="tableData">
+        <el-table-column align="right" prop="key" />
+        <el-table-column align="left" prop="value" />
+      </el-table>
     </main>
 
     <footer>
@@ -61,11 +82,11 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.info {
-  color: #af3a03;
-}
-
 .scrollbar-y {
   height: 1500px;
+}
+
+.infoTable {
+  width: 100%;
 }
 </style>
