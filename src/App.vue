@@ -73,19 +73,12 @@ const tableData = [
     </main>
 
     <footer>
-      <!-- Create vertical scrollbar -->
-      <p>footer start</p>
-      <div class="scrollbar-y"></div>
-      <p>footer end</p>
+      <p>footer</p>
     </footer>
   </el-config-provider>
 </template>
 
 <style scoped>
-.scrollbar-y {
-  height: 1500px;
-}
-
 .infoTable {
   width: 100%;
 }
