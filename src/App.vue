@@ -39,24 +39,26 @@ onMounted(() => {
   })
 })
 
-const tableData = [
-  {
-    key: 'Physical resolution',
-    value: computedWindowInfo.value.physicalResolution,
-  },
-  {
-    key: 'Logical resolution',
-    value: computedWindowInfo.value.logicalResolution,
-  },
-  {
-    key: 'Viewport size',
-    value: computedWindowInfo.value.viewportSize,
-  },
-  {
-    key: 'Scale',
-    value: computedWindowInfo.value.scale,
-  },
-]
+const tableData = computed(() => {
+  return [
+    {
+      key: 'Physical resolution',
+      value: computedWindowInfo.value.physicalResolution,
+    },
+    {
+      key: 'Logical resolution',
+      value: computedWindowInfo.value.logicalResolution,
+    },
+    {
+      key: 'Viewport size',
+      value: computedWindowInfo.value.viewportSize,
+    },
+    {
+      key: 'Scale',
+      value: computedWindowInfo.value.scale,
+    },
+  ]
+})
 </script>
 
 <template>
