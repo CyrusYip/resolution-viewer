@@ -77,8 +77,8 @@ const tableData = computed(() => {
         </div>
       </main>
 
-      <footer>
-        <p text-center>help | source code</p>
+      <footer text-center>
+        <p><el-link type="primary" href="https://github.com/CyrusYip/resolution-viewer" target="_blank" title="Source code">CyrusYip/resolution-viewer</el-link></p>
       </footer>
     </div>
   </el-config-provider>
