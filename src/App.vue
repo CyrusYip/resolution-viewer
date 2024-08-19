@@ -68,10 +68,12 @@ const tableData = computed(() => {
     </header>
 
     <main>
-      <el-table class="infoTable" stripe :data="tableData">
-        <el-table-column align="right" prop="key" />
-        <el-table-column align="left" prop="value" />
-      </el-table>
+      <div class="tableWrapper">
+        <el-table class="infoTable" :data="tableData">
+          <el-table-column align="right" prop="key" />
+          <el-table-column align="left" prop="value" />
+        </el-table>
+      </div>
     </main>
 
     <footer>
@@ -81,7 +83,16 @@ const tableData = computed(() => {
 </template>
 
 <style scoped>
-.infoTable {
-  width: 100%;
+.tableWrapper {
+  margin: 0 1rem;
+}
+
+/* delimiter = table width + left margin + right margin */
+@media (min-width: 432px) {
+  .tableWrapper {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>
