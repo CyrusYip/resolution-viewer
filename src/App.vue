@@ -77,7 +77,7 @@ const tableData = computed(() => {
     </main>
 
     <footer>
-      <p>footer</p>
+      <p text-red>footer</p>
     </footer>
   </el-config-provider>
 </template>
