@@ -63,23 +63,24 @@ const tableData = computed(() => {
 
 <template>
   <el-config-provider>
-    <header>
-      <p>header</p>
-    </header>
+    <div flex flex-col justify-between min-h-vh min-h-dvh>
+      <header>
+      </header>
 
-    <main>
-      <!-- delimiter = table width + left margin + right margin -->
-      <div mx-4 class="min-[432px]:w-400px min-[432px]:ml-auto min-[432px]:mr-auto">
-        <el-table stripe border :show-header=false :data="tableData">
-          <el-table-column align="right" prop="key" />
-          <el-table-column align="left" prop="value" />
-        </el-table>
-      </div>
-    </main>
+      <main>
+        <!-- delimiter = table width + left margin + right margin -->
+        <div mx-4 class="min-[432px]:w-400px min-[432px]:ml-auto min-[432px]:mr-auto">
+          <el-table stripe border :show-header=false :data="tableData">
+            <el-table-column align="right" prop="key" />
+            <el-table-column align="left" prop="value" />
+          </el-table>
+        </div>
+      </main>
 
-    <footer>
-      <p>footer</p>
-    </footer>
+      <footer>
+        <p text-center>help | source code</p>
+      </footer>
+    </div>
   </el-config-provider>
 </template>
 
