@@ -68,8 +68,9 @@ const tableData = computed(() => {
     </header>
 
     <main>
-      <div class="tableWrapper">
-        <el-table class="infoTable" :data="tableData">
+      <!-- delimiter = table width + left margin + right margin -->
+      <div mx-4 class="min-[432px]:w-400px min-[432px]:ml-auto min-[432px]:mr-auto">
+        <el-table :data="tableData">
           <el-table-column align="right" prop="key" />
           <el-table-column align="left" prop="value" />
         </el-table>
@@ -77,22 +78,9 @@ const tableData = computed(() => {
     </main>
 
     <footer>
-      <p text-red>footer</p>
+      <p>footer</p>
     </footer>
   </el-config-provider>
 </template>
 
-<style scoped>
-.tableWrapper {
-  margin: 0 1rem;
-}
-
-/* delimiter = table width + left margin + right margin */
-@media (min-width: 432px) {
-  .tableWrapper {
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-</style>
+<style scoped></style>
