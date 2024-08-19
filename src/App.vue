@@ -70,7 +70,7 @@ const tableData = computed(() => {
     <main>
       <!-- delimiter = table width + left margin + right margin -->
       <div mx-4 class="min-[432px]:w-400px min-[432px]:ml-auto min-[432px]:mr-auto">
-        <el-table :data="tableData">
+        <el-table stripe border :show-header=false :data="tableData">
           <el-table-column align="right" prop="key" />
           <el-table-column align="left" prop="value" />
         </el-table>
