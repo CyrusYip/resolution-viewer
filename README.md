@@ -1,27 +1,22 @@
 # resolution-viewer
 
-Check resolution in the browser.
+[Live demo](https://resolution-viewer.cyrusyip.org/)
 
-## Project Setup
+Resolution viewer is a website that shows your device's physical resolution, logical resolution, viewport size and scale. Information will be updated when the window is resized.
+
+## Development
 
 ```sh
+# Setup
 pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
+# Preview
 pnpm dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-pnpm build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
+# Lint
 pnpm lint
+# Format
+pnpm format
+# Build
+pnpm build
+# Preview the built website
+pnpm preview
 ```
