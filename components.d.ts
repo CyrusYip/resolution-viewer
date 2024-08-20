@@ -10,5 +10,6 @@ declare module 'vue' {
     ElLink: typeof import('element-plus/es')['ElLink']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    InfoTable: typeof import('./src/components/InfoTable.vue')['default']
   }
 }

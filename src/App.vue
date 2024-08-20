@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, defineComponent, onMounted, ref } from 'vue'
 import { ElConfigProvider } from 'element-plus'
+import InfoTable from './components/InfoTable.vue'
 
 defineComponent({
   components: {
@@ -81,17 +82,9 @@ const tableData = computed(() => {
   <el-config-provider>
     <div flex flex-col justify-between min-h-vh min-h-dvh>
       <header></header>
-
       <main>
-        <!-- delimiter = table width + left margin + right margin -->
-        <div mx-4 class="min-[432px]:w-400px min-[432px]:ml-auto min-[432px]:mr-auto">
-          <el-table stripe border :show-header="false" :data="tableData">
-            <el-table-column align="right" prop="key" />
-            <el-table-column align="left" prop="value" />
-          </el-table>
-        </div>
+        <InfoTable :tableData="tableData" />
       </main>
-
       <footer text-center>
         <p>
           <el-link
