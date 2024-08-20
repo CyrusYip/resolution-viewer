@@ -4,20 +4,36 @@ import { ElConfigProvider } from 'element-plus'
 
 defineComponent({
   components: {
-    ElConfigProvider,
-  },
+    ElConfigProvider
+  }
 })
 
 function getWindowInfo() {
   const { innerWidth, innerHeight, outerWidth, outerHeight, devicePixelRatio } = window
   const { width, height, availWidth, availHeight } = window.screen
-  return { innerWidth, innerHeight, outerWidth, outerHeight, devicePixelRatio, width, height, availWidth, availHeight }
+  return {
+    innerWidth,
+    innerHeight,
+    outerWidth,
+    outerHeight,
+    devicePixelRatio,
+    width,
+    height,
+    availWidth,
+    availHeight
+  }
 }
 
 const rawWindowInfo = ref(getWindowInfo())
 
 const computedWindowInfo = computed(() => {
-  const { innerWidth, innerHeight, width: logicalWidth, height: logicalHeight, devicePixelRatio } = rawWindowInfo.value
+  const {
+    innerWidth,
+    innerHeight,
+    width: logicalWidth,
+    height: logicalHeight,
+    devicePixelRatio
+  } = rawWindowInfo.value
   const physicalWidth = logicalWidth * devicePixelRatio
   const physicalHeight = logicalHeight * devicePixelRatio
   const scale = `${devicePixelRatio * 100}%`
@@ -43,20 +59,20 @@ const tableData = computed(() => {
   return [
     {
       key: 'Physical resolution',
-      value: computedWindowInfo.value.physicalResolution,
+      value: computedWindowInfo.value.physicalResolution
     },
     {
       key: 'Logical resolution',
-      value: computedWindowInfo.value.logicalResolution,
+      value: computedWindowInfo.value.logicalResolution
     },
     {
       key: 'Viewport size',
-      value: computedWindowInfo.value.viewportSize,
+      value: computedWindowInfo.value.viewportSize
     },
     {
       key: 'Scale',
-      value: computedWindowInfo.value.scale,
-    },
+      value: computedWindowInfo.value.scale
+    }
   ]
 })
 </script>
@@ -64,13 +80,12 @@ const tableData = computed(() => {
 <template>
   <el-config-provider>
     <div flex flex-col justify-between min-h-vh min-h-dvh>
-      <header>
-      </header>
+      <header></header>
 
       <main>
         <!-- delimiter = table width + left margin + right margin -->
         <div mx-4 class="min-[432px]:w-400px min-[432px]:ml-auto min-[432px]:mr-auto">
-          <el-table stripe border :show-header=false :data="tableData">
+          <el-table stripe border :show-header="false" :data="tableData">
             <el-table-column align="right" prop="key" />
             <el-table-column align="left" prop="value" />
           </el-table>
@@ -78,7 +93,15 @@ const tableData = computed(() => {
       </main>
 
       <footer text-center>
-        <p><el-link type="primary" href="https://github.com/CyrusYip/resolution-viewer" target="_blank" title="Source code">CyrusYip/resolution-viewer</el-link></p>
+        <p>
+          <el-link
+            type="primary"
+            href="https://github.com/CyrusYip/resolution-viewer"
+            target="_blank"
+            title="Source code"
+            >CyrusYip/resolution-viewer</el-link
+          >
+        </p>
       </footer>
     </div>
   </el-config-provider>
