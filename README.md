@@ -2,7 +2,7 @@
 
 [Live demo](https://resolution-viewer.cyrusyip.org/)
 
-Resolution viewer is a website that shows your device's physical resolution, logical resolution, viewport size and scale. Information will be updated when the window is resized.
+resolution-viewer is a website that shows your device's physical resolution, logical resolution, viewport size and scale. Information will be updated when the window is resized.
 
 ## Development
 
